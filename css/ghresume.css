@@ -35,14 +35,14 @@ a{
 
 ul{
   list-style:none;
-  display:table-cell; 
+  display:table-cell;
 }
 
-ul li{
-  padding: 5px;
+ul li i{
+  margin-right: 5px;
 }
 
-#main{
+.container{
   /* transparent gray */
   background-color: rgba(0, 0, 0, 0.862745);
   -webkit-transition: opacity .2s ease-in;
@@ -51,7 +51,6 @@ ul li{
   transition: opacity .2s ease-in;
   opacity: 1;
 
-  margin-top:5%; 
   /* border */ 
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -59,6 +58,14 @@ ul li{
   border: 1px solid transparent;
 
   padding:30px; 
+}
+
+#user{
+  margin-top: 5%;
+}
+
+#gh-data{
+  margin-top: 2%; 
 }
 
 #avatar_container{
@@ -70,4 +77,28 @@ ul li{
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
   border: solid 4px #fff;
+  background:#fff; 
+}
+
+#user-info-container{
+  margin-top:10px;
+}
+
+#user-info{
+  line-height: 20px;
+}
+/* circle */
+.circle{
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:22px;
+  color:#fff;
+  line-height:70px;
+  text-align:center;
+  background:#09f
+}
+
+#followers h3{
+  font-weight: normal;
 }

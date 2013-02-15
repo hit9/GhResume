@@ -13,7 +13,8 @@
       $("#user-info #location").text(res.location);
       $("#user-info #email").text(res.email);
       $("#user-info #company").text(res.company);
-      return $("#user-info #blog").text(res.blog);
+      $("#user-info #blog").text(res.blog);
+      return $("#followers #follower-number").text(res.followers);
     });
   });
 

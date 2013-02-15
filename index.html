@@ -35,8 +35,7 @@ Github: hit9
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
     </a>
 
-    <!-- all in this container -->
-    <div class="container" id="main">
+    <div class="container" id="user">
 
       <!-- avatar from gravatar-->
       <div class="row">
@@ -46,31 +45,43 @@ Github: hit9
         </div>
 
         <!-- header: avatar, name,  login-name-->
-        <div class="span7 offset1">
+        <div class="span4 offset1">
           <h1 id="name"></h1>
           <!-- user infomation list -->
-          <ul id="user-info">
-            <li>
+          <div id="user-info-container">
+            <ul id="user-info">
+              <li>
               <i class="icon-map-marker icon-white"></i>
               <a id="location"></a>
-            </li>
-            <li>
+              </li>
+              <li>
               <i class="icon-envelope icon-white"></i>
               <a id="email"></a>
-            </li>
-            <li>
+              </li>
+              <li>
               <i class="icon-user icon-white"></i>
               <a id="company"></a>
-            </li>
-            <li>
+              </li>
+              <li>
               <i class="icon-home icon-white"></i>
               <a id="blog"></a>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
 
+        <!-- followers circle -->
+        <div class="span2 offset1" id="followers">
+          <div id="follower-number" class="circle">
+          </div>
+          <h3>followers</h3>
+        </div>
       </div>
-    </div>
 
-  </body>
+    </div>
+  </div>
+  <div class="container" id="gh-data">
+    some text
+  </div>
+</body>
 </html>

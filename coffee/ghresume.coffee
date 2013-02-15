@@ -12,4 +12,5 @@ $(document).ready ->
       $("#user-info #email").text(res.email)
       $("#user-info #company").text(res.company)
       $("#user-info #blog").text(res.blog)
+      $("#followers #follower-number").text(res.followers)
   )
