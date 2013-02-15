@@ -5,7 +5,7 @@
 | |  _| |_| | |_) / _ \/ __| | | | '_ ` _ \ / _ \
 | |_| |  _  |  _ <  __/\__ \ |_| | | | | | |  __/
  \____|_| |_|_| \_\___||___/\__,_|_| |_| |_|\___|
-                                                 
+
 ^-^ Oh my ugly codes!
 
 Github: hit9
@@ -18,7 +18,7 @@ Github: hit9
     <!-- bootstrap css -->
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css"/>
     <!-- use impress demo's font, thanks! -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
     <!-- rusume style sheet -->
     <link rel="stylesheet" href="css/ghresume.css" />
@@ -34,18 +34,43 @@ Github: hit9
     <a href="https://github.com/hit9">
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
     </a>
+
     <!-- all in this container -->
-    <div class="container">
-      <img src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" alt="avatar" id="avatar" height="170" width="170" />
-      <!-- header: avatar, name,  login-name-->
-      <h1></h1>
-      <p>lallaa</p>
-      <p>lallaa</p>
-      <p>lallaa</p>
-      <p>lallaa</p>
-      <p>lallaa</p>
-      <p>lallaa</p>
-      <p>lallaa</p>
+    <div class="container" id="main">
+
+      <!-- avatar from gravatar-->
+      <div class="row">
+        <div class="span3" id="avatar_container">
+          <!-- Is it ok to use this cute cat here? -->
+          <img src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" alt="avatar" id="avatar" height="170" width="170" />
+        </div>
+
+        <!-- header: avatar, name,  login-name-->
+        <div class="span7 offset1">
+          <h1 id="name"></h1>
+          <!-- user infomation list -->
+          <ul id="user-info">
+            <li>
+              <i class="icon-map-marker icon-white"></i>
+              <a id="location"></a>
+            </li>
+            <li>
+              <i class="icon-envelope icon-white"></i>
+              <a id="email"></a>
+            </li>
+            <li>
+              <i class="icon-user icon-white"></i>
+              <a id="company"></a>
+            </li>
+            <li>
+              <i class="icon-home icon-white"></i>
+              <a id="blog"></a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
+
   </body>
 </html>

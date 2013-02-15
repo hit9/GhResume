@@ -12,13 +12,37 @@ a, abbr, acronym, address, big, cite, code,
 
 body{
   font-family: 'PT Sans', sans-serif;
+  font-size: 15px; 
+  line-height: 19px; 
+  color: #fff; 
   background:url(../static/background.jpg) no-repeat fixed top;
   /* adjust background image css */
   -moz-background-size:100% 100%; 
   background-size:100% 100%;
 }
 
-.container{
+/* i got this answer from stackoverflow.They say this is an old issue that
+ * offset not working in row-fluid
+ */
+.offset1 {
+    margin-left: 85px !important;
+}
+
+a{
+  font-size:15px; 
+  text-decoration:none;
+}
+
+ul{
+  list-style:none;
+  display:table-cell; 
+}
+
+ul li{
+  padding: 5px;
+}
+
+#main{
   /* transparent gray */
   background-color: rgba(0, 0, 0, 0.862745);
   -webkit-transition: opacity .2s ease-in;
@@ -34,7 +58,11 @@ body{
   -webkit-border-radius: 5px;
   border: 1px solid transparent;
 
-  padding:25px 30px; 
+  padding:30px; 
+}
+
+#avatar_container{
+  border-right:solid 1px #777;
 }
 
 #avatar{
