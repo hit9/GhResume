@@ -1,0 +1,45 @@
+html, body, div, h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,
+, ol, ul, li, form, label, table, tr, th, td
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body{
+  font-family: 'PT Sans', sans-serif;
+  background:url(../static/background.jpg) no-repeat fixed top;
+  /* adjust background image css */
+  -moz-background-size:100% 100%; 
+  background-size:100% 100%;
+}
+
+.container{
+  /* transparent gray */
+  background-color: rgba(0, 0, 0, 0.862745);
+  -webkit-transition: opacity .2s ease-in;
+  -moz-transition: opacity .2s ease-in;
+  -o-transition: opacity .2s ease-in;
+  transition: opacity .2s ease-in;
+  opacity: 1;
+
+  margin-top:5%; 
+  /* border */ 
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid transparent;
+
+  padding:25px 30px; 
+}
+
+#avatar{
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+  border: solid 4px #fff;
+}
