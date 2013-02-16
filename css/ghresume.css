@@ -25,11 +25,12 @@ body{
  * offset not working in row-fluid
  */
 .offset1 {
-    margin-left: 85px !important;
+  margin-left: 85px !important;
 }
 
 a{
   font-size:15px; 
+  color: #4183c4; 
   text-decoration:none;
 }
 
@@ -42,9 +43,13 @@ ul li i{
   margin-right: 5px;
 }
 
+h1#name{
+  margin-bottom:35px; 
+}
+
 .container{
   /* transparent gray */
-  background-color: rgba(0, 0, 0, 0.862745);
+  background-color: rgba(0, 0, 0, 0.892745);
   -webkit-transition: opacity .2s ease-in;
   -moz-transition: opacity .2s ease-in;
   -o-transition: opacity .2s ease-in;
@@ -68,8 +73,17 @@ ul li i{
   margin-top: 2%; 
 }
 
+#repos{
+  margin-top: 2%; 
+}
+
 #avatar_container{
   border-right:solid 1px #777;
+}
+
+hr{
+  border:none; 
+  border-bottom: solid #777 1px; 
 }
 
 #avatar{
@@ -87,18 +101,39 @@ ul li i{
 #user-info{
   line-height: 20px;
 }
+
+#user-info-container li, #repolist li{
+  color:#999;
+}
+
 /* circle */
 .circle{
-  width:70px;
-  height:70px;
+  width:60px;
+  height:60px;
   border-radius:50px;
   font-size:22px;
   color:#fff;
-  line-height:70px;
+  line-height:60px;
   text-align:center;
   background:#09f
 }
 
 #followers h3{
   font-weight: normal;
+}
+
+h2{
+  font-size: 152%;
+  font-weight:normal; 
+  font-style: italic;
+}
+
+#repolist > li {
+  border-bottom: 1px solid #333;
+  padding: 0 0 20px 0;
+  position: relative;
+  min-height: 66px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
+  list-style-type: none;
 }

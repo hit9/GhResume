@@ -5,19 +5,33 @@
 
   username = "hit9";
 
-  api_url = "https://api.github.com/users/" + username;
+  api_url = "https://api.github.com/users/";
 
-  $.getJSON(api_url, function(res) {
+  $.getJSON(api_url + username, function(res) {
     var avatar_url;
     document.title = res.login + "'s Resume";
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
     $("#name").text(res.name);
-    $("#user-info #location").text(res.location);
-    $("#user-info #email").text(res.email);
-    $("#user-info #company").text(res.company);
-    $("#user-info #blog").text(res.blog);
+    $("#user-info #location").append(res.location);
+    $("#user-info #email").append(res.email);
+    $("#user-info #company").append(res.company);
+    $("#user-info #blog").append("<a href=\"" + res.blog + "\" >" + res.blog + "</a>");
     return $("#followers #follower-number").text(res.followers);
+  });
+
+  $.getJSON(api_url + username + "/repos?type=owner", function(res) {
+    var repo, _i, _len, _ref, _results;
+    res.sort(function(a, b) {
+      return b.watchers_count - a.watchers_count;
+    });
+    _ref = res.slice(0, 4);
+    _results = [];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      repo = _ref[_i];
+      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + repo.description + "</p>        </li>      "));
+    }
+    return _results;
   });
 
 }).call(this);

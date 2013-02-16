@@ -28,10 +28,6 @@ Github: hit9
     <script src="js/ghresume.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
-    <!-- fork me on github banner -->
-    <a href="https://github.com/hit9">
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
-    </a>
 
     <div class="container" id="user">
 
@@ -48,21 +44,17 @@ Github: hit9
           <!-- user infomation list -->
           <div id="user-info-container">
             <ul id="user-info">
-              <li>
+              <li id="location">
               <i class="icon-map-marker icon-white"></i>
-              <a id="location"></a>
               </li>
-              <li>
+              <li id="email">
               <i class="icon-envelope icon-white"></i>
-              <a id="email"></a>
               </li>
-              <li>
+              <li id="company">
               <i class="icon-user icon-white"></i>
-              <a id="company"></a>
               </li>
-              <li>
+              <li id="blog">
               <i class="icon-home icon-white"></i>
-              <a id="blog"></a>
               </li>
             </ul>
           </div>
@@ -72,7 +64,7 @@ Github: hit9
         <div class="span2 offset1" id="followers">
           <div id="follower-number" class="circle">
           </div>
-          <h3>followers</h3>
+          <h2>follower</h2>
         </div>
       </div>
 
@@ -81,5 +73,17 @@ Github: hit9
   <div class="container" id="gh-data">
     some text
   </div>
+  <div class="container" id="repos">
+    <h2>Popular Repositories</h2>
+    <hr>
+    <ul id="repolist">
+    </ul>
+  </div>
+
+  <!-- fork me on github banner -->
+  <a href="https://github.com/hit9/GhResume">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+  </a>
+
 </body>
 </html>
