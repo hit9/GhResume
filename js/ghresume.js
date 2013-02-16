@@ -33,7 +33,7 @@
       if (repo.homepage) {
         homepage = "<a href=\"" + repo.homepage + "\" ><i class=\"icon-home icon-white\" ></i></a>";
       }
-      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">          <li class=\"stars\">" + repo.watchers_count + "          </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp; " + repo.description + "</p>        </li>      "));
+      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>            <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp; " + repo.description + "</p>        </li>      "));
     }
     return _results;
   });

@@ -36,8 +36,12 @@ $.getJSON(api_url+username+"/repos?type=owner",
       $("#repolist").append("
         <li style=\"display: list-item;\">
           <ul class=\"repo-stats\">
-          <li class=\"stars\">"+repo.watchers_count+"
-          </li>
+            <li class=\"stars\">
+              <i class=\"icon-star icon-white\"></i>"+repo.watchers_count+"
+            </li>
+            <li class=\"created_time\">
+              <i class=\"icon-time icon-white\"></i>"+repo.created_at.substring(0, 10)+"
+            </li>
           </ul>
           <h3>
             <a href=\"https://github.com/"+username+"/"+repo.name+"\">

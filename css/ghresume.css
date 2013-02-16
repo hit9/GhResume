@@ -128,6 +128,12 @@ h2{
   font-style: italic;
 }
 
+
+ul#repolist{
+  float:left; 
+  min-width:80%; 
+}
+
 #repolist h3 a{
   font-size: 93%;
   font-weight:normal; 
@@ -151,5 +157,13 @@ h2{
   font-weight: bold;
   padding-left: 15px;
   z-index: 5;
-  background: transparent;
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+}
+
+#repolist ul.repo-stats li{
+  float:left;
+  display: list-item;
+  margin:0 5px; 
 }
