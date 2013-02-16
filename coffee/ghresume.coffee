@@ -28,15 +28,23 @@ $.getJSON(api_url+username+"/repos?type=owner",
         b.watchers_count-a.watchers_count
     )
     # append repos to repolist
-    for repo in res[0...4]
+    for repo in res[0...5]
+      # home page
+      homepage = ""
+      if repo.homepage
+        homepage = "<a href=\"" + repo.homepage + "\" ><i class=\"icon-home icon-white\" ></i></a>"
       $("#repolist").append("
         <li style=\"display: list-item;\">
+          <ul class=\"repo-stats\">
+          <li class=\"stars\">"+repo.watchers_count+"
+          </li>
+          </ul>
           <h3>
             <a href=\"https://github.com/"+username+"/"+repo.name+"\">
             "+repo.name+"
             </a>
           </h3>
-          <p id=\"description\">"+repo.description+"</p>
+          <p id=\"description\">"+homepage+"&nbsp; "+repo.description+"</p>
         </li>
       ")
 )

@@ -21,15 +21,19 @@
   });
 
   $.getJSON(api_url + username + "/repos?type=owner", function(res) {
-    var repo, _i, _len, _ref, _results;
+    var homepage, repo, _i, _len, _ref, _results;
     res.sort(function(a, b) {
       return b.watchers_count - a.watchers_count;
     });
-    _ref = res.slice(0, 4);
+    _ref = res.slice(0, 5);
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       repo = _ref[_i];
-      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + repo.description + "</p>        </li>      "));
+      homepage = "";
+      if (repo.homepage) {
+        homepage = "<a href=\"" + repo.homepage + "\" ><i class=\"icon-home icon-white\" ></i></a>";
+      }
+      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">          <li class=\"stars\">" + repo.watchers_count + "          </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp; " + repo.description + "</p>        </li>      "));
     }
     return _results;
   });
