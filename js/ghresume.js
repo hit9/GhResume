@@ -1,21 +1,23 @@
 (function() {
-  var user;
+  var $, api_url, username;
 
-  user = new Gh3.User("hit9");
+  $ = jQuery;
 
-  $(document).ready(function() {
-    return user.fetch(function(err, res) {
-      var avatar_url;
-      document.title = res.login + "'s Resume";
-      avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
-      $("#avatar").attr("src", avatar_url);
-      $("#name").text(res.name);
-      $("#user-info #location").text(res.location);
-      $("#user-info #email").text(res.email);
-      $("#user-info #company").text(res.company);
-      $("#user-info #blog").text(res.blog);
-      return $("#followers #follower-number").text(res.followers);
-    });
+  username = "hit9";
+
+  api_url = "https://api.github.com/users/" + username;
+
+  $.getJSON(api_url, function(res) {
+    var avatar_url;
+    document.title = res.login + "'s Resume";
+    avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
+    $("#avatar").attr("src", avatar_url);
+    $("#name").text(res.name);
+    $("#user-info #location").text(res.location);
+    $("#user-info #email").text(res.email);
+    $("#user-info #company").text(res.company);
+    $("#user-info #blog").text(res.blog);
+    return $("#followers #follower-number").text(res.followers);
   });
 
 }).call(this);
