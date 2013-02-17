@@ -1,5 +1,5 @@
 (function() {
-  var $, api_url, bing_url, idx, username;
+  var $, alphacoders_api, alphacoders_api_auth_key, api_url, username;
 
   $ = jQuery;
 
@@ -7,17 +7,12 @@
 
   api_url = "https://api.github.com/users/";
 
-  idx = parseInt(Math.random() * 15);
+  alphacoders_api_auth_key = "30cdde245ca734f3a637b1ad22419b90";
 
-  bing_url = "http://www.bing.com/HPImageArchive.aspx?format=xml&n=1&idx=" + idx;
+  alphacoders_api = "http://wall.alphacoders.com/api1.0/get.php?auth=" + alphacoders_api_auth_key + "&sort=newest";
 
-  $.ajax({
-    url: bing_url,
-    dataType: "xml",
-    type: "GET",
-    success: function(res) {
-      return alert(res);
-    }
+  $.getJSON(alphacoders_api, function(res) {
+    return alert(res.url);
   });
 
   $.getJSON(api_url + username, function(res) {

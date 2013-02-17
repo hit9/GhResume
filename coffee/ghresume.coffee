@@ -3,17 +3,14 @@ $ = jQuery
 username = "hit9"
 api_url = "https://api.github.com/users/"
 
-# get wallpaper from bing.com
-idx = parseInt(Math.random() * 15)  # days number before today
-bing_url = "http://www.bing.com/HPImageArchive.aspx?format=xml&n=1&idx="+idx
+# get wallpaper from alphacoders.com
 
-$.ajax({
-  url: bing_url, 
-  dataType: "xml", 
-  type: "GET", 
-  success: (res)->
-    alert res
-  })
+alphacoders_api_auth_key = "30cdde245ca734f3a637b1ad22419b90"
+alphacoders_api = "http://wall.alphacoders.com/api1.0/get.php?auth="+alphacoders_api_auth_key+"&sort=newest"
+$.getJSON(alphacoders_api, 
+  (res)->
+    alert res.url
+  )
 
 
 # get user information
