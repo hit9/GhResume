@@ -3,6 +3,19 @@ $ = jQuery
 username = "hit9"
 api_url = "https://api.github.com/users/"
 
+# get wallpaper from bing.com
+idx = parseInt(Math.random() * 15)  # days number before today
+bing_url = "http://www.bing.com/HPImageArchive.aspx?format=xml&n=1&idx="+idx
+
+$.ajax({
+  url: bing_url, 
+  dataType: "xml", 
+  type: "GET", 
+  success: (res)->
+    alert res
+  })
+
+
 # get user information
 $.getJSON(api_url+username,
   (res)->
@@ -38,6 +51,10 @@ $.getJSON(api_url+username+"/repos?type=owner",
           <ul class=\"repo-stats\">
             <li class=\"stars\">
               <i class=\"icon-star icon-white\"></i>"+repo.watchers_count+"
+            </li>
+            <li class=\"forks\">
+              <i class=\"icon-share-alt icon-white\"></i>
+              "+repo.forks_count+"
             </li>
             <li class=\"created_time\">
               <i class=\"icon-time icon-white\"></i>"+repo.created_at.substring(0, 10)+"
