@@ -15,7 +15,7 @@ body{
   font-size: 15px; 
   line-height: 19px; 
   color: #fff; 
-  background:url(../static/background.jpg) no-repeat fixed top;
+  background: no-repeat fixed top;
   /* adjust background image css */
   -moz-background-size:100% 100%; 
   background-size:100% 100%;
