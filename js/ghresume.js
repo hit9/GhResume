@@ -27,7 +27,7 @@
   });
 
   $.getJSON(api_url + username + "/repos?type=owner", function(res) {
-    var homepage, l, lang, language, repo, s, size, _i, _j, _len, _len1, _ref, _results;
+    var homepage, l, lang, language, per, repo, s, size, _i, _j, _len, _len1, _ref;
     res.sort(function(a, b) {
       var ap, bp;
       ap = a.watchers_count + a.forks_count;
@@ -47,7 +47,7 @@
       }
       $("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>            <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>            <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + language + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p>        </li>      ");
     }
-    lang = {};
+    lang = [];
     size = 0;
     for (_j = 0, _len1 = res.length; _j < _len1; _j++) {
       repo = res[_j];
@@ -59,12 +59,15 @@
       }
       size += 1;
     }
-    _results = [];
     for (l in lang) {
       s = lang[l];
-      _results.push($("#gh-data").append("<p>" + l + ":" + s / size + "</p>"));
+      per = parseInt(s / size * 100);
+      $("#gh-data").append("      <div class=\"chart\">        <div class=\"percentage\" data-percent=\"" + per + "\"><span>" + per + "</span>%</div>          <div class=\"label\">" + l + "</div>      </div>      ");
     }
-    return _results;
+    return $(".chart").easyPieChart({
+      barColor: "#000",
+      animate: 6000
+    });
   });
 
 }).call(this);

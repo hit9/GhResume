@@ -71,6 +71,7 @@ h1#name{
 
 #gh-data{
   margin-top: 2%; 
+  min-height: auto; 
 }
 
 #repos{

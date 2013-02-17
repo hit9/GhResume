@@ -70,7 +70,7 @@ $.getJSON(api_url+username+"/repos?type=owner",
         </li>
       ")
     # caculate total size and percentage of codes
-    lang = {}
+    lang = []
     size = 0
 
     for repo in res
@@ -80,6 +80,16 @@ $.getJSON(api_url+username+"/repos?type=owner",
         lang[repo.language] += 1
       size += 1
 
-    for l, s of lang
-      $("#gh-data").append("<p>" + l + ":"+ s/size + "</p>")
+    for l,s of lang
+      per = parseInt(s/size * 100)
+      $("#gh-data").append("
+      <div class=\"chart\">
+        <div class=\"percentage\" data-percent=\""+per+"\"><span>"+per+"</span>%</div>
+          <div class=\"label\">"+l+"</div>
+      </div>
+      ")
+    $(".chart").easyPieChart({
+      barColor: "#000", 
+      animate: 6000
+    })
 )
