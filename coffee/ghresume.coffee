@@ -33,7 +33,9 @@ $.getJSON(api_url+username+"/repos?type=owner",
     # sort repo by its watchers_count
     res.sort(
       (a, b)->
-        b.watchers_count-a.watchers_count
+        ap = a.watchers_count+a.forks_count
+        bp = b.watchers_count+b.forks_count
+        bp-ap
     )
     # append repos to repolist
     for repo in res[0...5]
@@ -41,6 +43,10 @@ $.getJSON(api_url+username+"/repos?type=owner",
       homepage = ""
       if repo.homepage
         homepage = "<a href=\"" + repo.homepage + "\" ><i class=\"icon-home icon-white\" ></i></a>"
+
+      language = ""
+      if repo.language
+        language = "<span id=\"language\"> ("+repo.language+")</span>"
       $("#repolist").append("
         <li style=\"display: list-item;\">
           <ul class=\"repo-stats\">
@@ -57,10 +63,23 @@ $.getJSON(api_url+username+"/repos?type=owner",
           </ul>
           <h3>
             <a href=\"https://github.com/"+username+"/"+repo.name+"\">
-            "+repo.name+"
+            "+repo.name+language+"
             </a>
           </h3>
-          <p id=\"description\">"+homepage+"&nbsp; "+repo.description+"</p>
+          <p id=\"description\">"+homepage+"&nbsp;"+repo.description+"</p>
         </li>
       ")
+    # caculate total size and percentage of codes
+    lang = {}
+    size = 0
+
+    for repo in res
+      if repo.language
+        if !lang[repo.language]
+          lang[repo.language] = 0
+        lang[repo.language] += 1
+      size += 1
+
+    for l, s of lang
+      $("#gh-data").append("<p>" + l + ":"+ s/size + "</p>")
 )

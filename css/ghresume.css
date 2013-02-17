@@ -128,6 +128,11 @@ h2{
   font-style: italic;
 }
 
+h3>a>span#language{
+  color:#999999;
+  font-style: italic;
+  font-size:56%;
+}
 
 ul#repolist{
   float:left; 

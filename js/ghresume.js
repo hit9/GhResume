@@ -27,19 +27,42 @@
   });
 
   $.getJSON(api_url + username + "/repos?type=owner", function(res) {
-    var homepage, repo, _i, _len, _ref, _results;
+    var homepage, l, lang, language, repo, s, size, _i, _j, _len, _len1, _ref, _results;
     res.sort(function(a, b) {
-      return b.watchers_count - a.watchers_count;
+      var ap, bp;
+      ap = a.watchers_count + a.forks_count;
+      bp = b.watchers_count + b.forks_count;
+      return bp - ap;
     });
     _ref = res.slice(0, 5);
-    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       repo = _ref[_i];
       homepage = "";
       if (repo.homepage) {
         homepage = "<a href=\"" + repo.homepage + "\" ><i class=\"icon-home icon-white\" ></i></a>";
       }
-      _results.push($("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>            <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>            <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp; " + repo.description + "</p>        </li>      "));
+      language = "";
+      if (repo.language) {
+        language = "<span id=\"language\"> (" + repo.language + ")</span>";
+      }
+      $("#repolist").append("        <li style=\"display: list-item;\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>            <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>            <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + language + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p>        </li>      ");
+    }
+    lang = {};
+    size = 0;
+    for (_j = 0, _len1 = res.length; _j < _len1; _j++) {
+      repo = res[_j];
+      if (repo.language) {
+        if (!lang[repo.language]) {
+          lang[repo.language] = 0;
+        }
+        lang[repo.language] += 1;
+      }
+      size += 1;
+    }
+    _results = [];
+    for (l in lang) {
+      s = lang[l];
+      _results.push($("#gh-data").append("<p>" + l + ":" + s / size + "</p>"));
     }
     return _results;
   });
