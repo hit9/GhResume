@@ -66,7 +66,8 @@
     }
     return $(".chart").easyPieChart({
       barColor: "#000",
-      animate: 6000
+      animate: 6000,
+      size: 60
     });
   });
 
