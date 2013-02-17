@@ -3,13 +3,11 @@ $ = jQuery
 username = "hit9"
 api_url = "https://api.github.com/users/"
 
-# get wallpaper from alphacoders.com
-
-alphacoders_api_auth_key = "30cdde245ca734f3a637b1ad22419b90"
-alphacoders_api = "http://wall.alphacoders.com/api1.0/get.php?auth="+alphacoders_api_auth_key+"&sort=newest"
-$.getJSON(alphacoders_api, 
+# get wallpaper from desktoppr.co
+desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
+$.getJSON(desktoppr_api, 
   (res)->
-    alert res.url
+    $("body").css("background-image","url("+res.response.image.url+")")
   )
 
 

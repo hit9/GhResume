@@ -1,5 +1,5 @@
 (function() {
-  var $, alphacoders_api, alphacoders_api_auth_key, api_url, username;
+  var $, api_url, desktoppr_api, username;
 
   $ = jQuery;
 
@@ -7,12 +7,10 @@
 
   api_url = "https://api.github.com/users/";
 
-  alphacoders_api_auth_key = "30cdde245ca734f3a637b1ad22419b90";
+  desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
 
-  alphacoders_api = "http://wall.alphacoders.com/api1.0/get.php?auth=" + alphacoders_api_auth_key + "&sort=newest";
-
-  $.getJSON(alphacoders_api, function(res) {
-    return alert(res.url);
+  $.getJSON(desktoppr_api, function(res) {
+    return $("body").css("background-image", "url(" + res.response.image.url + ")");
   });
 
   $.getJSON(api_url + username, function(res) {
