@@ -17,7 +17,7 @@ $.getJSON(api_url+username,
     # avatar size 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
     $("#avatar").attr("src", avatar_url)
-    $("#name").text(res.name)
+    $("#name").html(res.name)
     $("#user-info #location").append(res.location)
     $("#user-info #email").append(res.email)
     $("#user-info #company").append(res.company)
@@ -87,6 +87,8 @@ $.getJSON(api_url+username+"/repos?type=owner",
         b[1]-a[1]
     )
 
+    $("h1#name").append("&nbsp; <span>("+tuple_arr[0][0]+")</span>")
+
     $.getJSON("vendors/github-language-colors/colors.json", 
       (clr)->
         # use the first 6
@@ -94,7 +96,7 @@ $.getJSON(api_url+username+"/repos?type=owner",
           l = item[0]
           n = item[1]
           $("#skills ul#lang-container").append(
-            "<li style=\"background-color:"+clr[l]+"; \">"+ parseInt(n/size * 100) + "% </li>"
+            "<li> <div style=\"background-color:"+clr[l]+"; \"> "+ parseInt(n/size * 100) + "% </div><span>"+l+"</span></li>"
           )
     )
 )

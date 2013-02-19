@@ -18,7 +18,7 @@
     document.title = res.login + "'s Resume";
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
-    $("#name").text(res.name);
+    $("#name").html(res.name);
     $("#user-info #location").append(res.location);
     $("#user-info #email").append(res.email);
     $("#user-info #company").append(res.company);
@@ -67,6 +67,7 @@
     tuple_arr.sort(function(a, b) {
       return b[1] - a[1];
     });
+    $("h1#name").append("&nbsp; <span>(" + tuple_arr[0][0] + ")</span>");
     return $.getJSON("vendors/github-language-colors/colors.json", function(clr) {
       var item, l, n, _k, _len2, _ref1, _results;
       _ref1 = tuple_arr.slice(0, 6);
@@ -75,7 +76,7 @@
         item = _ref1[_k];
         l = item[0];
         n = item[1];
-        _results.push($("#skills ul#lang-container").append("<li style=\"background-color:" + clr[l] + "; \">" + parseInt(n / size * 100) + "% </li>"));
+        _results.push($("#skills ul#lang-container").append("<li> <div style=\"background-color:" + clr[l] + "; \"> " + parseInt(n / size * 100) + "% </div><span>" + l + "</span></li>"));
       }
       return _results;
     });

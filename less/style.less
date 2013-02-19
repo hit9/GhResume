@@ -121,6 +121,10 @@ hr{
     h1#name{
         font-size: @h1-size; 
         margin-bottom: 35px; 
+        span{
+            font-size: 60%; 
+            color: @light-gray; 
+        }
     }
     #avatar_container{
         border-right:solid 1px @gray;
@@ -156,11 +160,19 @@ hr{
         display:inline-block;
         li{
             margin: 0 10px; 
-            .text-circle(28px); 
-            background-color: @light-blue; 
-            font-size: @h3-size; 
             float: left; 
-            color: @white; 
+            text-align: center;
+            div{
+                background-color: @light-blue; 
+                .text-circle(28px); 
+                font-size: @h3-size; 
+                color: @white; 
+            }
+            span{
+                margin: 0 5px;
+                font-size: 80%;
+                font-weight: normal;
+            }
         }
     }
 }
