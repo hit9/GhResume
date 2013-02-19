@@ -5,3 +5,5 @@ summary of forks,repos,commits and issues
 loading!
 add fork_count for each repo
 use css instead of pie chart plugin. gen the first five lang
+
+add primary language for user in name headline
