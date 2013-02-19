@@ -3,6 +3,8 @@ $ = jQuery
 username = "hit9"
 api_url = "https://api.github.com/users/"
 
+# language's color from github
+
 # get wallpaper from desktoppr.co
 desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
 $.getJSON(desktoppr_api, 
@@ -69,7 +71,8 @@ $.getJSON(api_url+username+"/repos?type=owner",
           <p id=\"description\">"+homepage+"&nbsp;"+repo.description+"</p>
         </li>
       ")
-    # caculate total size and percentage of codes
+
+    # skills
     lang = []
     size = 0
 
