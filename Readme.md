@@ -19,7 +19,8 @@ Make your own
 Thanks
 ------
 
-The background image of the page comes from [desktoppr](https://www.desktoppr.co).Their api is sweet. Thank you very much.
+1. The background image of the page comes from [desktoppr](https://www.desktoppr.co).Their api is sweet. Thank you very much.
+2. The language color data: [doda/github-language-colors](https://github.com/doda/github-language-colors), many thanks.
 
 License
 -------
