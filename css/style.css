@@ -137,6 +137,11 @@ hr {
   background-color: #0099ff;
   color: #ffffff;
 }
+.container#skills h2 {
+  font-weight: normal;
+  font-size: 152%;
+  font-style: italic;
+}
 .container#skills ul#lang-container {
   display: inline-block;
 }
