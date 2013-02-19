@@ -48,7 +48,7 @@ $.getJSON(api_url+username+"/repos?type=owner",
       if repo.language
         language = "<span id=\"language\"> ("+repo.language+")</span>"
       $("#repolist").append("
-        <li style=\"display: list-item;\">
+        <li style=\"display: list-item;\" class=\"singlerepo\">
           <ul class=\"repo-stats\">
             <li class=\"stars\">
               <i class=\"icon-star icon-white\"></i>"+repo.watchers_count+"

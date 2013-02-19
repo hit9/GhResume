@@ -1,10 +1,17 @@
 //colors 
-@white:#fff; 
-@blue:#009999; 
+@white: #fff; 
+@blue: #009999; 
+@light-blue: #09f; 
+@gray: #777; 
+@heavy-gray: #333; 
+@light-gray: #999999; 
 
 // font size
-@font-normal-size:15px; 
-@line-height-normal:@font-normal-size + 4px; 
+@font-normal-size: 16px; 
+@line-height-normal: @font-normal-size + 5px; 
+@h1-size: 200%; 
+@h2-size: 152%; 
+@h3-size: 130%; 
 
 // transparent background
 .transpare(@arg:0.892745){
@@ -22,9 +29,24 @@
     border-radius: @radius;
     -moz-border-radius: @radius;
     -webkit-border-radius: @radius;
-    border: 1px solid transparent;
 }
 
+// circle class
+.circle{
+    .border-radius(50em); 
+}
+
+.square(@len){
+    height: @len; 
+    width: @len; 
+}
+
+.text-circle(@radius: 30px){
+    .square(@radius * 2);
+    .circle; 
+    text-align: center; 
+    line-height: @radius * 2; 
+}
 
 html, body, div, h1, h2, h3, h4, h5, h6, p, pre,
 a, abbr, acronym, address, big, cite, code,ol, ul, li, form, label, table, tr, th, td
@@ -49,9 +71,9 @@ body{
 }
 
 a{
-    font-size:@font-normal-size; 
+    font-size: @font-normal-size; 
     color: @blue; 
-    text-decoration:none;
+    text-decoration: none;
 }
 
 ul{
@@ -71,14 +93,105 @@ ul li i{
     margin-left: 85px !important;
 }
 
-/*the name headline*/
-h1#name{
-    margin-bottom:35px; 
-}
 
+/* containers */
 .container{
     /* gray opcity*/
     .transpare; 
     .border-radius; 
+    border: 1px solid transparent;
     padding:30px; 
+    margin: 2% auto;
+}
+
+/* hr */
+hr{
+    border:none; 
+    border-bottom: solid @gray 1px; 
+}
+
+.h2{
+    font-weight: normal; 
+    font-size: @h2-size; 
+    font-style: italic;
+}
+
+.container#user{
+    margin: 3% auto;
+    h1#name{
+        font-size: @h1-size; 
+        margin-bottom: 35px; 
+    }
+    #avatar_container{
+        border-right:solid 1px @gray;
+    }
+    #avatar{
+        .circle;  
+        border: solid 4px @white;
+        background: @white; 
+    }
+    #user-info-container{
+        margin-top: 10px;
+        #user-info{
+            line-height: @line-height-normal;
+        }
+    }
+    #followers{
+        h2{
+            .h2; 
+            margin: 10px auto; 
+        }
+        #follower-number{
+            .text-circle(35px); 
+            font-size: @h2-size; 
+            background-color: @light-blue; 
+            color: @white; 
+        }
+    } 
+}
+
+.container#repos{
+    h2{
+        .h2; 
+    }
+    ul#repolist{
+        float:left; 
+        min-width: 80%; 
+        h3{
+            a{
+                font-size: @h3-size; 
+                font-weight: normal;
+                span#language{
+                    color: @light-gray; 
+                    font-style: italic; 
+                    font-size: 56%; 
+                }
+            }
+        }
+        li.singlerepo{
+            border-bottom: 1px solid @heavy-gray;
+            padding: 0 0 20px 0;
+            position: relative;
+            min-height: 66px;
+            overflow: hidden;
+            margin: 0 0 20px 0;
+            list-style-type: none;
+            ul.repo-stats{
+                  position: relative;
+                  float: right;
+                  border: none;
+                  font-size: 11px;
+                  padding-left: 15px;
+                  z-index: 5;
+                  display: inline-block;
+                  margin: 0;
+                  overflow: hidden;
+                  li{
+                      float:left;
+                      display: list-item;
+                      margin:0 5px; 
+                }
+            }
+        }
+    } 
 }

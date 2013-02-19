@@ -1,3 +1,8 @@
+.circle {
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+}
 html,
 body,
 div,
@@ -34,8 +39,8 @@ td {
 }
 body {
   font-family: 'PT Sans', sans-serif;
-  font-size: 15px;
-  line-height: 19px;
+  font-size: 16px;
+  line-height: 21px;
   color: #ffffff;
   background: no-repeat fixed top;
   /* adjust background image css */
@@ -44,7 +49,7 @@ body {
   background-size: 100% 100%;
 }
 a {
-  font-size: 15px;
+  font-size: 16px;
   color: #009999;
   text-decoration: none;
 }
@@ -62,10 +67,7 @@ ul li i {
 .offset1 {
   margin-left: 85px !important;
 }
-/*the name headline*/
-h1#name {
-  margin-bottom: 35px;
-}
+/* containers */
 .container {
   /* gray opcity*/
 
@@ -82,4 +84,99 @@ h1#name {
   -webkit-border-radius: 5px;
   border: 1px solid transparent;
   padding: 30px;
+  margin: 2% auto;
+}
+/* hr */
+hr {
+  border: none;
+  border-bottom: solid #777777 1px;
+}
+.h2 {
+  font-weight: normal;
+  font-size: 152%;
+  font-style: italic;
+}
+.container#user {
+  margin: 3% auto;
+}
+.container#user h1#name {
+  font-size: 200%;
+  margin-bottom: 35px;
+}
+.container#user #avatar_container {
+  border-right: solid 1px #777777;
+}
+.container#user #avatar {
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+  border: solid 4px #ffffff;
+  background: #ffffff;
+}
+.container#user #user-info-container {
+  margin-top: 10px;
+}
+.container#user #user-info-container #user-info {
+  line-height: 21px;
+}
+.container#user #followers h2 {
+  font-weight: normal;
+  font-size: 152%;
+  font-style: italic;
+  margin: 10px auto;
+}
+.container#user #followers #follower-number {
+  height: 70px;
+  width: 70px;
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+  text-align: center;
+  line-height: 70px;
+  font-size: 152%;
+  background-color: #0099ff;
+  color: #ffffff;
+}
+.container#repos h2 {
+  font-weight: normal;
+  font-size: 152%;
+  font-style: italic;
+}
+.container#repos ul#repolist {
+  float: left;
+  min-width: 80%;
+}
+.container#repos ul#repolist h3 a {
+  font-size: 130%;
+  font-weight: normal;
+}
+.container#repos ul#repolist h3 a span#language {
+  color: #999999;
+  font-style: italic;
+  font-size: 56%;
+}
+.container#repos ul#repolist li.singlerepo {
+  border-bottom: 1px solid #333333;
+  padding: 0 0 20px 0;
+  position: relative;
+  min-height: 66px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
+  list-style-type: none;
+}
+.container#repos ul#repolist li.singlerepo ul.repo-stats {
+  position: relative;
+  float: right;
+  border: none;
+  font-size: 11px;
+  padding-left: 15px;
+  z-index: 5;
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+}
+.container#repos ul#repolist li.singlerepo ul.repo-stats li {
+  float: left;
+  display: list-item;
+  margin: 0 5px;
 }
