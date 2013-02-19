@@ -137,6 +137,23 @@ hr {
   background-color: #0099ff;
   color: #ffffff;
 }
+.container#skills ul#lang-container {
+  display: inline-block;
+}
+.container#skills ul#lang-container li {
+  margin: 0 10px;
+  height: 56px;
+  width: 56px;
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+  text-align: center;
+  line-height: 56px;
+  background-color: #0099ff;
+  font-size: 130%;
+  float: left;
+  color: #ffffff;
+}
 .container#repos h2 {
   font-weight: normal;
   font-size: 152%;

@@ -3,15 +3,12 @@ $ = jQuery
 username = "hit9"
 api_url = "https://api.github.com/users/"
 
-# language's color from github
-
 # get wallpaper from desktoppr.co
 desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
 $.getJSON(desktoppr_api, 
   (res)->
     $("body").css("background-image","url("+res.response.image.url+")")
   )
-
 
 # get user information
 $.getJSON(api_url+username,
@@ -82,5 +79,22 @@ $.getJSON(api_url+username+"/repos?type=owner",
           lang[repo.language] = 0
         lang[repo.language] += 1
       size += 1
+    tuple_arr = []
+    for key, value of lang
+      tuple_arr.push([key, value])
+    tuple_arr.sort(
+      (a, b)->
+        b[1]-a[1]
+    )
 
+    $.getJSON("vendors/github-language-colors/colors.json", 
+      (clr)->
+        # use the first 6
+        for item in tuple_arr[0...6]
+          l = item[0]
+          n = item[1]
+          $("#skills ul#lang-container").append(
+            "<li style=\"background-color:"+clr[l]+"; \">"+ parseInt(n/size * 100) + "% </li>"
+          )
+    )
 )

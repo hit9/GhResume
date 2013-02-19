@@ -27,7 +27,7 @@
   });
 
   $.getJSON(api_url + username + "/repos?type=owner", function(res) {
-    var homepage, lang, language, repo, size, _i, _j, _len, _len1, _ref, _results;
+    var homepage, key, lang, language, repo, size, tuple_arr, value, _i, _j, _len, _len1, _ref;
     res.sort(function(a, b) {
       var ap, bp;
       ap = a.watchers_count + a.forks_count;
@@ -49,7 +49,6 @@
     }
     lang = [];
     size = 0;
-    _results = [];
     for (_j = 0, _len1 = res.length; _j < _len1; _j++) {
       repo = res[_j];
       if (repo.language) {
@@ -58,9 +57,28 @@
         }
         lang[repo.language] += 1;
       }
-      _results.push(size += 1);
+      size += 1;
     }
-    return _results;
+    tuple_arr = [];
+    for (key in lang) {
+      value = lang[key];
+      tuple_arr.push([key, value]);
+    }
+    tuple_arr.sort(function(a, b) {
+      return b[1] - a[1];
+    });
+    return $.getJSON("vendors/github-language-colors/colors.json", function(clr) {
+      var item, l, n, _k, _len2, _ref1, _results;
+      _ref1 = tuple_arr.slice(0, 6);
+      _results = [];
+      for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
+        item = _ref1[_k];
+        l = item[0];
+        n = item[1];
+        _results.push($("#skills ul#lang-container").append("<li style=\"background-color:" + clr[l] + "; \">" + parseInt(n / size * 100) + "% </li>"));
+      }
+      return _results;
+    });
   });
 
 }).call(this);
