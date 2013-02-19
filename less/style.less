@@ -1,0 +1,84 @@
+//colors 
+@white:#fff; 
+@blue:#009999; 
+
+// font size
+@font-normal-size:15px; 
+@line-height-normal:@font-normal-size + 4px; 
+
+// transparent background
+.transpare(@arg:0.892745){
+    /* transparent gray */
+    background-color: rgba(0, 0, 0, @arg);
+    -webkit-transition: opacity .2s ease-in;
+    -moz-transition: opacity .2s ease-in;
+    -o-transition: opacity .2s ease-in;
+    transition: opacity .2s ease-in;
+    opacity: 1;
+}
+
+//border-radius
+.border-radius(@radius:5px){
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border: 1px solid transparent;
+}
+
+
+html, body, div, h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,ol, ul, li, form, label, table, tr, th, td
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body{
+    font-family: 'PT Sans', sans-serif;
+    font-size: @font-normal-size; 
+    line-height: @line-height-normal; 
+    color: @white; 
+    background: no-repeat fixed top;
+    /* adjust background image css */
+    -moz-background-size:100% 100%; 
+    background-size:100% 100%;
+}
+
+a{
+    font-size:@font-normal-size; 
+    color: @blue; 
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+    display:table-cell;
+}
+
+/*icon in ul>li*/
+ul li i{
+    margin: auto 5px;
+}
+
+/* i got this answer from stackoverflow.They say this is an old issue that
+ * offset not working in row-fluid
+ */
+.offset1 {
+    margin-left: 85px !important;
+}
+
+/*the name headline*/
+h1#name{
+    margin-bottom:35px; 
+}
+
+.container{
+    /* gray opcity*/
+    .transpare; 
+    .border-radius; 
+    padding:30px; 
+}

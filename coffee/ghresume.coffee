@@ -80,17 +80,4 @@ $.getJSON(api_url+username+"/repos?type=owner",
         lang[repo.language] += 1
       size += 1
 
-    for l,s of lang
-      per = parseInt(s/size * 100)
-      $("#gh-data").append("
-      <div class=\"chart\">
-        <div class=\"percentage\" data-percent=\""+per+"\"><span>"+per+"</span>%</div>
-          <div class=\"label\">"+l+"</div>
-      </div>
-      ")
-    $(".chart").easyPieChart({
-      barColor: "#000", 
-      animate: 6000, 
-      size: 60
-    })
 )

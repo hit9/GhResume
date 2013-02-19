@@ -27,7 +27,7 @@
   });
 
   $.getJSON(api_url + username + "/repos?type=owner", function(res) {
-    var homepage, l, lang, language, per, repo, s, size, _i, _j, _len, _len1, _ref;
+    var homepage, lang, language, repo, size, _i, _j, _len, _len1, _ref, _results;
     res.sort(function(a, b) {
       var ap, bp;
       ap = a.watchers_count + a.forks_count;
@@ -49,6 +49,7 @@
     }
     lang = [];
     size = 0;
+    _results = [];
     for (_j = 0, _len1 = res.length; _j < _len1; _j++) {
       repo = res[_j];
       if (repo.language) {
@@ -57,18 +58,9 @@
         }
         lang[repo.language] += 1;
       }
-      size += 1;
+      _results.push(size += 1);
     }
-    for (l in lang) {
-      s = lang[l];
-      per = parseInt(s / size * 100);
-      $("#gh-data").append("      <div class=\"chart\">        <div class=\"percentage\" data-percent=\"" + per + "\"><span>" + per + "</span>%</div>          <div class=\"label\">" + l + "</div>      </div>      ");
-    }
-    return $(".chart").easyPieChart({
-      barColor: "#000",
-      animate: 6000,
-      size: 60
-    });
+    return _results;
   });
 
 }).call(this);

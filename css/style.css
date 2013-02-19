@@ -1,0 +1,85 @@
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+ol,
+ul,
+li,
+form,
+label,
+table,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  color: #ffffff;
+  background: no-repeat fixed top;
+  /* adjust background image css */
+
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+a {
+  font-size: 15px;
+  color: #009999;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  display: table-cell;
+}
+/*icon in ul>li*/
+ul li i {
+  margin: auto 5px;
+}
+/* i got this answer from stackoverflow.They say this is an old issue that
+ * offset not working in row-fluid
+ */
+.offset1 {
+  margin-left: 85px !important;
+}
+/*the name headline*/
+h1#name {
+  margin-bottom: 35px;
+}
+.container {
+  /* gray opcity*/
+
+  /* transparent gray */
+
+  background-color: rgba(0, 0, 0, 0.892745);
+  -webkit-transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  opacity: 1;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 30px;
+}
