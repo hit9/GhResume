@@ -16,6 +16,11 @@ Make your own
 
 3. Go to [https://github.com/settings/applications](https://github.com/settings/applications) to register your ghresume repo as a new application
 
+Browser Support
+---------------
+
+Except IE(any version). Do you hate this browser?
+
 Thanks
 ------
 
