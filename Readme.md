@@ -19,7 +19,7 @@ Make your own
 Browser Support
 ---------------
 
-Except IE(any version). Do you hate this browser?
+Except IE(any version). Dont you hate this browser?
 
 Thanks
 ------
