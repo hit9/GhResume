@@ -12,9 +12,15 @@ Make your own
 
 1. fork this repo.
 
-2. change username in coffee/ghresume.coffee, make, and push to github.com
+2. edit file js/ghresume.js, change username to yours and commit this change to github.com
 
 3. Go to [https://github.com/settings/applications](https://github.com/settings/applications) to register your ghresume repo as a new application
+
+![](readme-screenshot.jpg)
+
+if you have a domain for your `user.github.com`, write your domain in the two blanks.(for me, will be http://hit9.org)
+
+![](readme-screenshot2.jpg)
 
 Browser Support
 ---------------
