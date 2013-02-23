@@ -5,7 +5,13 @@ Your github resume on gh-pages.
 Demo
 ----
 
-[my resume](http://hit9.org/GhResume)
+* [my resume](http://hit9.org/GhResume/?hit9)
+
+* [Github's resume](http://hit9.org/GhResume/?github)
+
+* [vmg's resume](http://hit9.org/GhResume/?vmg)
+
+* [sjl's resume](http://hit9.org/GhResume/?sjl)
 
 How to use
 ----------
