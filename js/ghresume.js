@@ -3,9 +3,13 @@
 
   $ = jQuery;
 
-  username = "hit9";
-
   api_url = "https://api.github.com/users/";
+
+  username = url("?").replace(/^\/|\/$/g, '');
+
+  if (!username) {
+    username = "hit9";
+  }
 
   desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
 

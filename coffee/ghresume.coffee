@@ -1,7 +1,11 @@
-# objects work with gh3.js
 $ = jQuery
-username = "hit9"
 api_url = "https://api.github.com/users/"
+
+# get github username from url, default:hit9
+username = url("?").replace(/^\/|\/$/g, '')
+
+if !username
+  username = "hit9"
 
 # get wallpaper from desktoppr.co
 desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
