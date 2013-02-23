@@ -14,18 +14,41 @@ $.getJSON(desktoppr_api,
     $("body").css("background-image","url("+res.response.image.url+")")
   )
 
-# get user information
+# user information
 $.getJSON(api_url+username,
   (res)->
     document.title = res.login + "'s Resume"
-    # avatar size 170
+    # avatar size: 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
     $("#avatar").attr("src", avatar_url)
     $("#name").html(res.name)
-    $("#user-info #location").append(res.location)
-    $("#user-info #email").append(res.email)
-    $("#user-info #company").append(res.company)
-    $("#user-info #blog").append("<a href=\""+res.blog+"\" >"+res.blog+"</a>")
+    if res.location
+      $("ul#user-info").append("
+      <li>
+        <i class=\"icon-map-marker icon-white\"></i>
+        "+res.location+"
+      </li>
+      ")
+    if res.email
+      $("ul#user-info").append("
+      <li>
+        <i class=\"icon-envelope icon-white\"></i>
+        "+res.email+"
+      </li>
+      ")
+    if res.company
+      $("ul#user-info").append("
+      <li>
+        <i class=\"icon-user icon-white\"></i>
+        "+res.company+"
+      </li>
+      ")
+    if res.blog
+      $("ul#user-info").append("
+      <li>
+        <i class=\"icon-home icon-white\"></i>
+        <a href=\""+res.blog+"\" >"+res.blog+"</a>
+      </li>")
     $("#followers #follower-number").text(res.followers)
 )
 
