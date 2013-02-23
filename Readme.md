@@ -7,8 +7,13 @@ Demo
 
 [my resume](http://hit9.org/GhResume)
 
-Make your own
--------------
+How to use
+----------
+
+index.html?your-github-username
+
+I want to host this on my github pages!
+---------------------------------------
 
 1. fork this repo.
 
