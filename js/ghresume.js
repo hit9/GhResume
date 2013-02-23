@@ -22,7 +22,7 @@
     document.title = res.login + "'s Resume";
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
-    $("#name").html(res.name);
+    $("#name").html("<a href=\"https://github.com/" + username + "\">" + res.name + "</a>");
     if (res.location) {
       $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>      ");
     }

@@ -21,7 +21,7 @@ $.getJSON(api_url+username,
     # avatar size: 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
     $("#avatar").attr("src", avatar_url)
-    $("#name").html(res.name)
+    $("#name").html("<a href=\"https://github.com/"+username+"\">"+res.name+"</a>")
     if res.location
       $("ul#user-info").append("
       <li>
