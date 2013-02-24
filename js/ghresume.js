@@ -19,7 +19,7 @@
 
   $.getJSON(api_url + username, function(res) {
     var avatar_url, followers, name;
-    document.title = res.login + "'s Resume";
+    $(document).attr("title", res.login + "'s " + document.title);
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
     if (res.name) {

@@ -17,7 +17,7 @@ $.getJSON(desktoppr_api,
 # user information
 $.getJSON(api_url+username,
   (res)->
-    document.title = res.login + "'s Resume"
+    $(document).attr("title", res.login+"'s "+ document.title)
     # avatar size: 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
     $("#avatar").attr("src", avatar_url)
