@@ -18,11 +18,16 @@
   });
 
   $.getJSON(api_url + username, function(res) {
-    var avatar_url;
+    var avatar_url, followers, name;
     document.title = res.login + "'s Resume";
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
-    $("#name").html("<a href=\"https://github.com/" + username + "\">" + res.name + "</a>");
+    if (res.name) {
+      name = res.name;
+    } else {
+      name = username;
+    }
+    $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
     if (res.location) {
       $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>      ");
     }
@@ -35,7 +40,12 @@
     if (res.blog) {
       $("ul#user-info").append("      <li>        <i class=\"icon-home icon-white\"></i>        <a href=\"" + res.blog + "\" >" + res.blog + "</a>      </li>");
     }
-    return $("#followers #follower-number").text(res.followers);
+    if (res.followers >= 1000) {
+      followers = (res.followers / 1000).toFixed(1) + "k";
+    } else {
+      followers = res.followers;
+    }
+    return $("#followers #follower-number").text(followers);
   });
 
   $.getJSON(api_url + username + "/repos", function(res) {

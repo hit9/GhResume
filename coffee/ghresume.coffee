@@ -21,7 +21,11 @@ $.getJSON(api_url+username,
     # avatar size: 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
     $("#avatar").attr("src", avatar_url)
-    $("#name").html("<a href=\"https://github.com/"+username+"\">"+res.name+"</a>")
+    if res.name
+      name = res.name
+    else
+      name = username
+    $("#name").html("<a href=\"https://github.com/"+username+"\">"+name+"</a>")
     if res.location
       $("ul#user-info").append("
       <li>
@@ -49,7 +53,11 @@ $.getJSON(api_url+username,
         <i class=\"icon-home icon-white\"></i>
         <a href=\""+res.blog+"\" >"+res.blog+"</a>
       </li>")
-    $("#followers #follower-number").text(res.followers)
+    if res.followers >= 1000
+      followers = (res.followers / 1000).toFixed(1) + "k"
+    else
+      followers = res.followers
+    $("#followers #follower-number").text(followers)
 )
 
 # get repos and display the first 5 repos
