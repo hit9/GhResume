@@ -3,7 +3,7 @@ GhResume
 
 Another resume generator for github user 
 
-![](screenshot-capture.png)
+![](screen-shot.png)
 
 Demo
 ----
