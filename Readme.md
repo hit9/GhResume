@@ -1,6 +1,9 @@
 GhResume
 ========
-Your github resume on gh-pages.
+
+Another resume generator for github user 
+
+![](screenshot-capture.png)
 
 Demo
 ----
@@ -18,7 +21,7 @@ Demo
 How to use
 ----------
 
-index.html?your-github-username
+`index.html?your-github-username`
 
 I want to host this on my github pages!
 ---------------------------------------
@@ -29,11 +32,7 @@ I want to host this on my github pages!
 
 3. Go to [https://github.com/settings/applications](https://github.com/settings/applications) to register your ghresume repo as a new application
 
-![](readme-screenshot.jpg)
-
-if you have a domain for your `user.github.com`, write your domain in the two blanks.(for me, will be http://hit9.org)
-
-![](readme-screenshot2.jpg)
+To register a new application on github: if you have a domain for your `user.github.com`, write your domain in the two blanks.(for me, will be http://hit9.org).else, write your-username.github.com in the two blanks.
 
 Browser Support
 ---------------
