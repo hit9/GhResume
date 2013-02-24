@@ -38,7 +38,7 @@
     return $("#followers #follower-number").text(res.followers);
   });
 
-  $.getJSON(api_url + username + "/repos?type=owner", function(res) {
+  $.getJSON(api_url + username + "/repos", function(res) {
     var homepage, key, lang, language, repo, size, tuple_arr, value, _i, _j, _len, _len1, _ref;
     res.sort(function(a, b) {
       var ap, bp;

@@ -100,14 +100,14 @@ hr {
   margin: 3% auto;
 }
 .container#user h1#name {
-  font-size: 170%;
+  font-size: 120%;
   margin-bottom: 35px;
 }
 .container#user h1#name a {
-  font-size: 170%;
+  font-size: 120%;
 }
 .container#user h1#name span {
-  font-size: 60%;
+  font-size: 100%;
   color: #999999;
 }
 .container#user #avatar_container {

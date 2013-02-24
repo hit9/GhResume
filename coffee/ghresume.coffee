@@ -54,7 +54,7 @@ $.getJSON(api_url+username,
 
 # get repos and display the first 5 repos
 
-$.getJSON(api_url+username+"/repos?type=owner",
+$.getJSON(api_url+username+"/repos",
   (res)->
     # sort repo by its watchers_count
     res.sort(
