@@ -12,7 +12,7 @@ desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
 $.getJSON(desktoppr_api, 
   (res)->
     $("body").css("background-image","url("+res.response.image.url+")")
-  )
+)
 
 # user information
 $.getJSON(api_url+username,
@@ -32,21 +32,21 @@ $.getJSON(api_url+username,
         <i class=\"icon-map-marker icon-white\"></i>
         "+res.location+"
       </li>
-      ")
+        ")
     if res.email
       $("ul#user-info").append("
       <li>
         <i class=\"icon-envelope icon-white\"></i>
         "+res.email+"
       </li>
-      ")
+        ")
     if res.company
       $("ul#user-info").append("
       <li>
         <i class=\"icon-user icon-white\"></i>
         "+res.company+"
       </li>
-      ")
+        ")
     if res.blog
       $("ul#user-info").append("
       <li>
@@ -57,7 +57,7 @@ $.getJSON(api_url+username,
       followers = (res.followers / 1000).toFixed(1) + "k"
     else
       followers = res.followers
-    $("#followers #follower-number").text(followers)
+    $("#follower-number").text(followers)
 )
 
 # get repos and display the first 5 repos
@@ -87,19 +87,19 @@ $.getJSON(api_url+username+"/repos",
             <li class=\"stars\">
               <i class=\"icon-star icon-white\"></i>"+repo.watchers_count+"
             </li>
-            <li class=\"forks\">
+              <li class=\"forks\">
               <i class=\"icon-share-alt icon-white\"></i>
               "+repo.forks_count+"
             </li>
-            <li class=\"created_time\">
+              <li class=\"created_time\">
               <i class=\"icon-time icon-white\"></i>"+repo.created_at.substring(0, 10)+"
             </li>
-          </ul>
+              </ul>
           <h3>
             <a href=\"https://github.com/"+username+"/"+repo.name+"\">
             "+repo.name+language+"
             </a>
-          </h3>
+              </h3>
           <p id=\"description\">"+homepage+"&nbsp;"+repo.description+"</p>
         </li>
       ")
@@ -114,13 +114,18 @@ $.getJSON(api_url+username+"/repos",
           lang[repo.language] = 0
         lang[repo.language] += 1
       size += 1
+
     tuple_arr = []
+
     for key, value of lang
       tuple_arr.push([key, value])
     tuple_arr.sort(
       (a, b)->
         b[1]-a[1]
     )
+
+    # count of repository
+    $("#repos-count").text(size)
 
     $("h1#name").append("&nbsp; <span>("+tuple_arr[0][0]+")</span>")
 

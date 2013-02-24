@@ -29,13 +29,13 @@
     }
     $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
     if (res.location) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>      ");
+      $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>        ");
     }
     if (res.email) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-envelope icon-white\"></i>        " + res.email + "      </li>      ");
+      $("ul#user-info").append("      <li>        <i class=\"icon-envelope icon-white\"></i>        " + res.email + "      </li>        ");
     }
     if (res.company) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-user icon-white\"></i>        " + res.company + "      </li>      ");
+      $("ul#user-info").append("      <li>        <i class=\"icon-user icon-white\"></i>        " + res.company + "      </li>        ");
     }
     if (res.blog) {
       $("ul#user-info").append("      <li>        <i class=\"icon-home icon-white\"></i>        <a href=\"" + res.blog + "\" >" + res.blog + "</a>      </li>");
@@ -45,7 +45,7 @@
     } else {
       followers = res.followers;
     }
-    return $("#followers #follower-number").text(followers);
+    return $("#follower-number").text(followers);
   });
 
   $.getJSON(api_url + username + "/repos", function(res) {
@@ -67,7 +67,7 @@
       if (repo.language) {
         language = "<span id=\"language\"> (" + repo.language + ")</span>";
       }
-      $("#repolist").append("        <li style=\"display: list-item;\" class=\"singlerepo\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>            <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>            <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>          </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + language + "            </a>          </h3>          <p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p>        </li>      ");
+      $("#repolist").append("        <li style=\"display: list-item;\" class=\"singlerepo\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>              <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>              <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>              </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + language + "            </a>              </h3>          <p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p>        </li>      ");
     }
     lang = [];
     size = 0;
@@ -89,6 +89,7 @@
     tuple_arr.sort(function(a, b) {
       return b[1] - a[1];
     });
+    $("#repos-count").text(size);
     $("h1#name").append("&nbsp; <span>(" + tuple_arr[0][0] + ")</span>");
     return $.getJSON("vendors/github-language-colors/colors.json", function(clr) {
       var item, l, n, _k, _len2, _ref1, _results;

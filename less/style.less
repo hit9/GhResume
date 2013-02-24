@@ -13,6 +13,10 @@
 @h2-size: 152%; 
 @h3-size: 130%; 
 
+//some var
+
+@count-circle-radius: 35px; 
+
 // transparent background
 .transpare(@arg:0.892745){
     /* transparent gray */
@@ -143,13 +147,16 @@ hr{
             line-height: @line-height-normal;
         }
     }
-    #followers{
+    .countcircle{
+        margin:auto 18px; 
         h2{
             .h2; 
             margin: 10px auto; 
+            text-align: center; 
+            min-width: @count-circle-radius * 2; 
         }
-        #follower-number{
-            .text-circle(35px); 
+        #follower-number, #repos-count{
+            .text-circle(@count-circle-radius); //mention here: circle radius 35px!
             font-size: @h2-size; 
             background-color: @light-blue; 
             color: @white; 

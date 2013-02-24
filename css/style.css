@@ -126,13 +126,19 @@ hr {
 .container#user #user-info-container #user-info {
   line-height: 21px;
 }
-.container#user #followers h2 {
+.container#user .countcircle {
+  margin: auto 18px;
+}
+.container#user .countcircle h2 {
   font-weight: normal;
   font-size: 152%;
   font-style: italic;
   margin: 10px auto;
+  text-align: center;
+  min-width: 70px;
 }
-.container#user #followers #follower-number {
+.container#user .countcircle #follower-number,
+.container#user .countcircle #repos-count {
   height: 70px;
   width: 70px;
   border-radius: 50em;
