@@ -13,7 +13,10 @@
     username = "hit9";
   }
 
-  $(document).ready(function() {});
+  $(document).ready(function() {
+    load_user_info(write_user_info);
+    return load_repos(write_repos);
+  });
 
   load_user_info = function(callback) {
     return $.getJSON(api_url + username + "?callback=?", callback);

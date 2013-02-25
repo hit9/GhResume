@@ -2,7 +2,7 @@
   border-radius: 50em;
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
-  behavior: url(../vendors/PIE.htc);
+  behavior: url(/GhResume/vendors/PIE.htc);
 }
 html,
 body,
@@ -84,7 +84,7 @@ ul li i {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  behavior: url(../vendors/PIE.htc);
+  behavior: url(/GhResume/vendors/PIE.htc);
   border: 1px solid transparent;
   padding: 30px;
   margin: 2% auto;
@@ -120,7 +120,7 @@ hr {
   border-radius: 50em;
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
-  behavior: url(../vendors/PIE.htc);
+  behavior: url(/GhResume/vendors/PIE.htc);
   border: solid 4px #ffffff;
   background: #ffffff;
 }
@@ -149,7 +149,7 @@ hr {
   border-radius: 50em;
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
-  behavior: url(../vendors/PIE.htc);
+  behavior: url(/GhResume/vendors/PIE.htc);
   text-align: center;
   line-height: 64px;
   font-size: 147%;
@@ -176,7 +176,7 @@ hr {
   border-radius: 50em;
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
-  behavior: url(../vendors/PIE.htc);
+  behavior: url(/GhResume/vendors/PIE.htc);
   text-align: center;
   line-height: 56px;
   font-size: 130%;
