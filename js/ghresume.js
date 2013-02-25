@@ -39,9 +39,9 @@
     }
     $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
     if (user.location) {
-      if (user.email) {
-        $("ul#user-info").append("<li><i class=\"icon-map-marker icon-white\"></i>" + user.location + "</li>");
-      }
+      $("ul#user-info").append("<li><i class=\"icon-map-marker icon-white\"></i>" + user.location + "</li>");
+    }
+    if (user.email) {
       $("ul#user-info").append("<li><i class=\"icon-envelope icon-white\"></i>" + user.email + "</li>");
     }
     if (user.company) {
