@@ -11,12 +11,14 @@ if !username
 desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
 $.getJSON(desktoppr_api, 
   (res)->
-    $("body").css("background-image","url("+res.response.image.url+")")
+    #$("body").css("background-image","url("+res.response.image.url+")")
 )
 
-# user information
-$.getJSON(api_url+username,
-  (res)->
+$.ajax({
+  url: api_url+username, 
+  type: "get", 
+  datatype: "json", 
+  success: (res)->
     $(document).attr("title", res.login+"'s "+ document.title)
     # avatar size: 170
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170"
@@ -65,7 +67,7 @@ $.getJSON(api_url+username,
       hireable = "NO"
       $("#hireable").css("background-color", "#555")
     $("#hireable").text(hireable)
-)
+})
 
 # get repos and display the first 5 repos
 

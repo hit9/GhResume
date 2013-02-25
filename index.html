@@ -11,17 +11,11 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
     <!-- rusume style sheet -->
     <link rel="stylesheet" href="css/style.css" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="vendors/js-url.min.js" type="text/javascript" charset="utf-8"></script>
-    <!-- application js -->
-    <script src="js/ghresume.js" type="text/javascript" charset="utf-8"></script>
-
-    <!--[IF IE]>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript">
-      alert("IE is not supported!"); 
-      window.location.href = "http://www.google.com/chrome";
+      $.noConflict();
     </script>
-    <![endif]-->
+    <script src="vendors/js-url.min.js" type="text/javascript" charset="utf-8" language="javascript"></script>
   </head>
   <body>
 
@@ -88,5 +82,7 @@
     <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
   </a>
 
+  <!-- application js-->
+  <script src="./js/ghresume.js" type="text/javascript" charset="utf-8" language="javascript"></script>
 </body>
 </html>

@@ -13,47 +13,50 @@
 
   desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
 
-  $.getJSON(desktoppr_api, function(res) {
-    return $("body").css("background-image", "url(" + res.response.image.url + ")");
-  });
+  $.getJSON(desktoppr_api, function(res) {});
 
-  $.getJSON(api_url + username, function(res) {
-    var avatar_url, followers, hireable, name;
-    $(document).attr("title", res.login + "'s " + document.title);
-    avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
-    $("#avatar").attr("src", avatar_url);
-    if (res.name) {
-      name = res.name;
-    } else {
-      name = username;
+  $.ajax({
+    url: api_url + username,
+    type: "get",
+    datatype: "json",
+    success: function(res) {
+      var avatar_url, followers, hireable, name;
+      $(document).attr("title", res.login + "'s " + document.title);
+      avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
+      $("#avatar").attr("src", avatar_url);
+      if (res.name) {
+        name = res.name;
+      } else {
+        name = username;
+      }
+      $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
+      if (res.location) {
+        $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>        ");
+      }
+      if (res.email) {
+        $("ul#user-info").append("      <li>        <i class=\"icon-envelope icon-white\"></i>        " + res.email + "      </li>        ");
+      }
+      if (res.company) {
+        $("ul#user-info").append("      <li>        <i class=\"icon-user icon-white\"></i>        " + res.company + "      </li>        ");
+      }
+      if (res.blog) {
+        $("ul#user-info").append("      <li>        <i class=\"icon-home icon-white\"></i>        <a href=\"" + res.blog + "\" >" + res.blog + "</a>      </li>");
+      }
+      if (res.followers >= 1000) {
+        followers = (res.followers / 1000).toFixed(1) + "k";
+      } else {
+        followers = res.followers;
+      }
+      $("#follower-number").text(followers);
+      if (res.hireable) {
+        hireable = "YES";
+        $("#hireable").css("background-color", "#199c4b");
+      } else {
+        hireable = "NO";
+        $("#hireable").css("background-color", "#555");
+      }
+      return $("#hireable").text(hireable);
     }
-    $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
-    if (res.location) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>        ");
-    }
-    if (res.email) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-envelope icon-white\"></i>        " + res.email + "      </li>        ");
-    }
-    if (res.company) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-user icon-white\"></i>        " + res.company + "      </li>        ");
-    }
-    if (res.blog) {
-      $("ul#user-info").append("      <li>        <i class=\"icon-home icon-white\"></i>        <a href=\"" + res.blog + "\" >" + res.blog + "</a>      </li>");
-    }
-    if (res.followers >= 1000) {
-      followers = (res.followers / 1000).toFixed(1) + "k";
-    } else {
-      followers = res.followers;
-    }
-    $("#follower-number").text(followers);
-    if (res.hireable) {
-      hireable = "YES";
-      $("#hireable").css("background-color", "#199c4b");
-    } else {
-      hireable = "NO";
-      $("#hireable").css("background-color", "#555");
-    }
-    return $("#hireable").text(hireable);
   });
 
   $.getJSON(api_url + username + "/repos", function(res) {
