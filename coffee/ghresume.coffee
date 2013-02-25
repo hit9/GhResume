@@ -58,6 +58,13 @@ $.getJSON(api_url+username,
     else
       followers = res.followers
     $("#follower-number").text(followers)
+    if res.hireable
+      hireable = "YES"
+      $("#hireable").css("background-color", "#199c4b")
+    else
+      hireable = "NO"
+      $("#hireable").css("background-color", "#555")
+    $("#hireable").text(hireable)
 )
 
 # get repos and display the first 5 repos

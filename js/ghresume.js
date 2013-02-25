@@ -18,7 +18,7 @@
   });
 
   $.getJSON(api_url + username, function(res) {
-    var avatar_url, followers, name;
+    var avatar_url, followers, hireable, name;
     $(document).attr("title", res.login + "'s " + document.title);
     avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
@@ -45,7 +45,15 @@
     } else {
       followers = res.followers;
     }
-    return $("#follower-number").text(followers);
+    $("#follower-number").text(followers);
+    if (res.hireable) {
+      hireable = "YES";
+      $("#hireable").css("background-color", "#199c4b");
+    } else {
+      hireable = "NO";
+      $("#hireable").css("background-color", "#555");
+    }
+    return $("#hireable").text(hireable);
   });
 
   $.getJSON(api_url + username + "/repos", function(res) {

@@ -93,7 +93,7 @@ hr {
 }
 .h2 {
   font-weight: normal;
-  font-size: 152%;
+  font-size: 147%;
   font-style: italic;
 }
 .container#user {
@@ -127,32 +127,33 @@ hr {
   line-height: 21px;
 }
 .container#user .countcircle {
-  margin: auto 18px;
+  margin: auto 13px;
 }
 .container#user .countcircle h2 {
   font-weight: normal;
-  font-size: 152%;
+  font-size: 147%;
   font-style: italic;
   margin: 10px auto;
   text-align: center;
-  min-width: 70px;
+  min-width: 64px;
 }
 .container#user .countcircle #follower-number,
-.container#user .countcircle #repos-count {
-  height: 70px;
-  width: 70px;
+.container#user .countcircle #repos-count,
+.container#user .countcircle #hireable {
+  height: 64px;
+  width: 64px;
   border-radius: 50em;
   -moz-border-radius: 50em;
   -webkit-border-radius: 50em;
   text-align: center;
-  line-height: 70px;
-  font-size: 152%;
+  line-height: 64px;
+  font-size: 147%;
   background-color: #0099ff;
   color: #ffffff;
 }
 .container#skills h2 {
   font-weight: normal;
-  font-size: 152%;
+  font-size: 147%;
   font-style: italic;
 }
 .container#skills ul#lang-container {
@@ -182,7 +183,7 @@ hr {
 }
 .container#repos h2 {
   font-weight: normal;
-  font-size: 152%;
+  font-size: 147%;
   font-style: italic;
 }
 .container#repos ul#repolist {

@@ -5,17 +5,18 @@
 @gray: #777; 
 @heavy-gray: #333; 
 @light-gray: #999999; 
+@green: #199c4b;
 
 // font size
 @font-normal-size: 16px; 
 @line-height-normal: @font-normal-size + 5px; 
 @h1-size: 170%; 
-@h2-size: 152%; 
+@h2-size: 147%; 
 @h3-size: 130%; 
 
 //some var
 
-@count-circle-radius: 35px; 
+@count-circle-radius: 32px; 
 
 // transparent background
 .transpare(@arg:0.892745){
@@ -148,14 +149,14 @@ hr{
         }
     }
     .countcircle{
-        margin:auto 18px; 
+        margin:auto 13px; 
         h2{
             .h2; 
             margin: 10px auto; 
             text-align: center; 
             min-width: @count-circle-radius * 2; 
         }
-        #follower-number, #repos-count{
+        #follower-number, #repos-count, #hireable{
             .text-circle(@count-circle-radius); //mention here: circle radius 35px!
             font-size: @h2-size; 
             background-color: @light-blue; 
