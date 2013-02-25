@@ -1,4 +1,7 @@
 $ = jQuery
+
+$.support.cors = true
+
 api_url = "https://api.github.com/users/"
 
 # get github username from url, default:hit9
@@ -18,6 +21,9 @@ $.ajax({
   url: api_url+username, 
   type: "get", 
   datatype: "json", 
+  cache: false, 
+  error: (x, s, e)->
+    alert e
   success: (res)->
     $(document).attr("title", res.login+"'s "+ document.title)
     # avatar size: 170

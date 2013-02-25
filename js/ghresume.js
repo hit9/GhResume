@@ -3,6 +3,8 @@
 
   $ = jQuery;
 
+  $.support.cors = true;
+
   api_url = "https://api.github.com/users/";
 
   username = url("?").replace(/^\/|\/$/g, '');
@@ -19,6 +21,10 @@
     url: api_url + username,
     type: "get",
     datatype: "json",
+    cache: false,
+    error: function(x, s, e) {
+      return alert(e);
+    },
     success: function(res) {
       var avatar_url, followers, hireable, name;
       $(document).attr("title", res.login + "'s " + document.title);
