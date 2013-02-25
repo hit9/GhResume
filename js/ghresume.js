@@ -1,5 +1,5 @@
 (function() {
-  var $, api_url, desktoppr_api, username;
+  var $, api_url, load_background, load_repos, load_user_info, username, write_repos, write_user_info;
 
   $ = jQuery;
 
@@ -13,67 +13,76 @@
     username = "hit9";
   }
 
-  desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
-
-  $.getJSON(desktoppr_api, function(res) {});
-
-  $.ajax({
-    url: api_url + username,
-    type: "get",
-    datatype: "json",
-    cache: false,
-    error: function(x, s, e) {
-      return alert(e);
-    },
-    success: function(res) {
-      var avatar_url, followers, hireable, name;
-      $(document).attr("title", res.login + "'s " + document.title);
-      avatar_url = "https://secure.gravatar.com/avatar/" + res.gravatar_id + "?size=170";
-      $("#avatar").attr("src", avatar_url);
-      if (res.name) {
-        name = res.name;
-      } else {
-        name = username;
-      }
-      $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
-      if (res.location) {
-        $("ul#user-info").append("      <li>        <i class=\"icon-map-marker icon-white\"></i>        " + res.location + "      </li>        ");
-      }
-      if (res.email) {
-        $("ul#user-info").append("      <li>        <i class=\"icon-envelope icon-white\"></i>        " + res.email + "      </li>        ");
-      }
-      if (res.company) {
-        $("ul#user-info").append("      <li>        <i class=\"icon-user icon-white\"></i>        " + res.company + "      </li>        ");
-      }
-      if (res.blog) {
-        $("ul#user-info").append("      <li>        <i class=\"icon-home icon-white\"></i>        <a href=\"" + res.blog + "\" >" + res.blog + "</a>      </li>");
-      }
-      if (res.followers >= 1000) {
-        followers = (res.followers / 1000).toFixed(1) + "k";
-      } else {
-        followers = res.followers;
-      }
-      $("#follower-number").text(followers);
-      if (res.hireable) {
-        hireable = "YES";
-        $("#hireable").css("background-color", "#199c4b");
-      } else {
-        hireable = "NO";
-        $("#hireable").css("background-color", "#555");
-      }
-      return $("#hireable").text(hireable);
-    }
+  $(document).ready(function() {
+    load_background();
+    load_user_info();
+    return load_repos();
   });
 
-  $.getJSON(api_url + username + "/repos", function(res) {
-    var homepage, key, lang, language, repo, size, tuple_arr, value, _i, _j, _len, _len1, _ref;
-    res.sort(function(a, b) {
+  load_background = function() {
+    var desktoppr_api;
+    desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
+    return $.getJSON(desktoppr_api, function(res) {
+      return $("body").css("background-image", "url(" + res.response.image.url + ")");
+    });
+  };
+
+  load_user_info = function() {
+    return $.getJSON(api_url + username, write_user_info);
+  };
+
+  load_repos = function() {
+    return $.getJSON(api_url + username + "/repos", write_repos);
+  };
+
+  write_user_info = function(user) {
+    var avatar_url, followers, hireable, name;
+    $(document).attr("title", user.login + "'s " + document.title);
+    avatar_url = "https://secure.gravatar.com/avatar/" + user.gravatar_id + "?size=170";
+    $("#avatar").attr("src", avatar_url);
+    if (user.name) {
+      name = user.name;
+    } else {
+      name = username;
+    }
+    $("#name").html("<a href=\"https://github.com/" + username + "\">" + name + "</a>");
+    if (user.location) {
+      if (user.email) {
+        $("ul#user-info").append("<li><i class=\"icon-map-marker icon-white\"></i>" + user.location + "</li>");
+      }
+      $("ul#user-info").append("<li><i class=\"icon-envelope icon-white\"></i>" + user.email + "</li>");
+    }
+    if (user.company) {
+      $("ul#user-info").append("<li><i class=\"icon-user icon-white\"></i>" + user.company + "</li>");
+    }
+    if (user.blog) {
+      $("ul#user-info").append("<li><i class=\"icon-home icon-white\"></i><a href=\"" + user.blog + "\" >" + user.blog + "</a></li>");
+    }
+    if (user.followers >= 1000) {
+      followers = (user.followers / 1000).toFixed(1) + "k";
+    } else {
+      followers = user.followers;
+    }
+    $("#follower-number").text(followers);
+    if (user.hireable) {
+      hireable = "YES";
+      $("#hireable").css("background-color", "#199c4b");
+    } else {
+      hireable = "NO";
+      $("#hireable").css("background-color", "#555");
+    }
+    return $("#hireable").text(hireable);
+  };
+
+  write_repos = function(repos) {
+    var count, homepage, key, lang, language, repo, tuple_arr, value, _i, _j, _len, _len1, _ref;
+    repos.sort(function(a, b) {
       var ap, bp;
       ap = a.watchers_count + a.forks_count;
       bp = b.watchers_count + b.forks_count;
       return bp - ap;
     });
-    _ref = res.slice(0, 5);
+    _ref = repos.slice(0, 5);
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       repo = _ref[_i];
       homepage = "";
@@ -84,19 +93,19 @@
       if (repo.language) {
         language = "<span id=\"language\"> (" + repo.language + ")</span>";
       }
-      $("#repolist").append("        <li style=\"display: list-item;\" class=\"singlerepo\">          <ul class=\"repo-stats\">            <li class=\"stars\">              <i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "            </li>              <li class=\"forks\">              <i class=\"icon-share-alt icon-white\"></i>              " + repo.forks_count + "            </li>              <li class=\"created_time\">              <i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "            </li>              </ul>          <h3>            <a href=\"https://github.com/" + username + "/" + repo.name + "\">            " + repo.name + language + "            </a>              </h3>          <p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p>        </li>      ");
+      $("#repolist").append("\<li style=\"display: list-item;\" class=\"singlerepo\"><ul class=\"repo-stats\"><li class=\"stars\"><i class=\"icon-star icon-white\"></i>" + repo.watchers_count + "</li>\<li class=\"forks\"><i class=\"icon-share-alt icon-white\"></i>" + repo.forks_count + " </li>\<li class=\"created_time\"><i class=\"icon-time icon-white\"></i>" + repo.created_at.substring(0, 10) + "</li>\</ul>\<h3><a href=\"https://github.com/" + username + "/" + repo.name + "\">" + repo.name + language + " </a></h3>\<p id=\"description\">" + homepage + "&nbsp;" + repo.description + "</p></li>");
     }
     lang = [];
-    size = 0;
-    for (_j = 0, _len1 = res.length; _j < _len1; _j++) {
-      repo = res[_j];
+    count = 0;
+    for (_j = 0, _len1 = repos.length; _j < _len1; _j++) {
+      repo = repos[_j];
       if (repo.language) {
         if (!lang[repo.language]) {
           lang[repo.language] = 0;
         }
         lang[repo.language] += 1;
       }
-      size += 1;
+      count += 1;
     }
     tuple_arr = [];
     for (key in lang) {
@@ -106,7 +115,7 @@
     tuple_arr.sort(function(a, b) {
       return b[1] - a[1];
     });
-    $("#repos-count").text(size);
+    $("#repos-count").text(count);
     $("h1#name").append("&nbsp; <span>(" + tuple_arr[0][0] + ")</span>");
     return $.getJSON("vendors/github-language-colors/colors.json", function(clr) {
       var item, l, n, _k, _len2, _ref1, _results;
@@ -116,11 +125,11 @@
         item = _ref1[_k];
         l = item[0];
         n = item[1];
-        _results.push($("#skills ul#lang-container").append("<li> <div style=\"background-color:" + clr[l] + "; \"> " + parseInt(n / size * 100) + "% </div><span>" + l + "</span></li>"));
+        _results.push($("#skills ul#lang-container").append("<li> <div style=\"background-color:" + clr[l] + "; \"> " + parseInt(n / count * 100) + "% </div><span>" + l + "</span></li>"));
       }
       return _results;
     });
-  });
+  };
 
 }).call(this);
 
