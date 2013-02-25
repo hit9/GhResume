@@ -8,8 +8,8 @@ if !username
   username = "hit9"
 
 $(document).ready(->
-  load_user_info(write_user_info)
-  load_repos(write_repos)
+  #load_user_info(write_user_info)
+  #load_repos(write_repos)
 )
 
 
