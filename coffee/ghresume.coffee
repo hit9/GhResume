@@ -9,8 +9,8 @@ if !username
 
 $(document).ready(->
   load_background()
-  load_user_info()
-  load_repos()
+  load_user_info(write_user_info)
+  load_repos(write_repos)
 )
 
 
@@ -20,11 +20,12 @@ load_background = ->
     $("body").css("background-image","url(" + res.response.image.url + ")")
   )
 
-load_user_info = -> $.getJSON(api_url + username, write_user_info)
+load_user_info = (callback) -> $.getJSON(api_url + username + "?callback=?", callback)
 
-load_repos = -> $.getJSON(api_url + username + "/repos", write_repos)
+load_repos = (callback) -> $.getJSON(api_url + username + "/repos" + "?callback=?", callback)
 
-write_user_info = (user) ->
+write_user_info = (response) ->
+  user = response.data
   # document title
   $(document).attr("title", user.login+"'s "+ document.title)
   # avatar, size: 170
@@ -60,7 +61,9 @@ write_user_info = (user) ->
     $("#hireable").css("background-color", "#555")
   $("#hireable").text(hireable)
 
-write_repos = (repos)->
+
+write_repos = (response)->
+  repos = response.data
   # sort repo by its watchers_count
   repos.sort(
     (a, b)->

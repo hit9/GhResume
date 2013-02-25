@@ -15,8 +15,8 @@
 
   $(document).ready(function() {
     load_background();
-    load_user_info();
-    return load_repos();
+    load_user_info(write_user_info);
+    return load_repos(write_repos);
   });
 
   load_background = function() {
@@ -27,16 +27,17 @@
     });
   };
 
-  load_user_info = function() {
-    return $.getJSON(api_url + username, write_user_info);
+  load_user_info = function(callback) {
+    return $.getJSON(api_url + username + "?callback=?", callback);
   };
 
-  load_repos = function() {
-    return $.getJSON(api_url + username + "/repos", write_repos);
+  load_repos = function(callback) {
+    return $.getJSON(api_url + username + "/repos" + "?callback=?", callback);
   };
 
-  write_user_info = function(user) {
-    var avatar_url, followers, hireable, name;
+  write_user_info = function(response) {
+    var avatar_url, followers, hireable, name, user;
+    user = response.data;
     $(document).attr("title", user.login + "'s " + document.title);
     avatar_url = "https://secure.gravatar.com/avatar/" + user.gravatar_id + "?size=170";
     $("#avatar").attr("src", avatar_url);
@@ -74,8 +75,9 @@
     return $("#hireable").text(hireable);
   };
 
-  write_repos = function(repos) {
-    var count, homepage, key, lang, language, repo, tuple_arr, value, _i, _j, _len, _len1, _ref;
+  write_repos = function(response) {
+    var count, homepage, key, lang, language, repo, repos, tuple_arr, value, _i, _j, _len, _len1, _ref;
+    repos = response.data;
     repos.sort(function(a, b) {
       var ap, bp;
       ap = a.watchers_count + a.forks_count;
