@@ -8,17 +8,10 @@ if !username
   username = "hit9"
 
 $(document).ready(->
-  load_background()
   load_user_info(write_user_info)
   load_repos(write_repos)
 )
 
-
-load_background = ->
-  desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random"
-  $.getJSON(desktoppr_api, (res) -> 
-    $("body").css("background-image","url(" + res.response.image.url + ")")
-  )
 
 load_user_info = (callback) -> $.getJSON(api_url + username + "?callback=?", callback)
 

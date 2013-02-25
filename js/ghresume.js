@@ -1,5 +1,5 @@
 (function() {
-  var $, api_url, load_background, load_repos, load_user_info, username, write_repos, write_user_info;
+  var $, api_url, load_repos, load_user_info, username, write_repos, write_user_info;
 
   $ = jQuery;
 
@@ -14,18 +14,9 @@
   }
 
   $(document).ready(function() {
-    load_background();
     load_user_info(write_user_info);
     return load_repos(write_repos);
   });
-
-  load_background = function() {
-    var desktoppr_api;
-    desktoppr_api = "https://api.desktoppr.co/1/wallpapers/random";
-    return $.getJSON(desktoppr_api, function(res) {
-      return $("body").css("background-image", "url(" + res.response.image.url + ")");
-    });
-  };
 
   load_user_info = function(callback) {
     return $.getJSON(api_url + username + "?callback=?", callback);
