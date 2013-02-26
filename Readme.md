@@ -42,7 +42,8 @@ IE 7+, chrome, firefox 4.0+, opera
 Thanks
 ------
 
-1.The language color data: [doda/github-language-colors](https://github.com/doda/github-language-colors), many thanks.
+1. The language color data: [doda/github-language-colors](https://github.com/doda/github-language-colors), many thanks.
+
 2. PIE.htc, ie works great with PIE !(css3 support for IE)
 
 License
