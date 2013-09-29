@@ -49,4 +49,4 @@ Thanks
 License
 -------
 
-BSD.
+BSD
