@@ -8,15 +8,15 @@ Another resume generator for github user
 Demo
 ----
 
-* [mine](http://hit9.org/GhResume/?hit9)
+* [mine](http://hit9.github.io/GhResume/?hit9)
 
-* [Github](http://hit9.org/GhResume/?github)
+* [Github](http://hit9.github.io/GhResume/?github)
 
-* [vmg](http://hit9.org/GhResume/?vmg)
+* [vmg](http://hit9.github.io/GhResume/?vmg)
 
-* [sjl](http://hit9.org/GhResume/?sjl)
+* [sjl](http://hit9.github.io/GhResume/?sjl)
 
-* [torvalds](http://hit9.org/GhResume/?torvalds)
+* [torvalds](http://hit9.github.io/GhResume/?torvalds)
 
 How to use
 ----------
