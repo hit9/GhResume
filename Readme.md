@@ -8,9 +8,9 @@ Another resume generator for github user
 Demo
 ----
 
-* [mine](http://hit9.github.io/GhResume/?hit9)
+* [tj](http://hit9.github.io/GhResume/?tj)
 
-* [Github](http://hit9.github.io/GhResume/?github)
+* [mitsuhiko](http://hit9.github.io/GhResume/?mitsuhiko)
 
 * [vmg](http://hit9.github.io/GhResume/?vmg)
 
