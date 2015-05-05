@@ -25,7 +25,7 @@
     $.getJSON(api + name + '?callback=?', function(res) {
       var user = res.data;
       // Title
-      $(document).attr('title', user.login + '\'s' + document.title);
+      $(document).attr('title', user.login + '\'s ' + document.title);
       // Avatar
       $('#avatar').attr('src', user.avatar_url);
       // Name
