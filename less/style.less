@@ -1,22 +1,22 @@
-//colors 
-@white: #fff; 
-@blue: #009999; 
-@light-blue: #09f; 
-@gray: #777; 
-@heavy-gray: #333; 
-@light-gray: #999999; 
+//colors
+@white: #fff;
+@blue: #009999;
+@light-blue: #09f;
+@gray: #777;
+@heavy-gray: #333;
+@light-gray: #999999;
 @green: #199c4b;
 
 // font size
-@font-normal-size: 16px; 
-@line-height-normal: @font-normal-size + 5px; 
-@h1-size: 170%; 
-@h2-size: 147%; 
-@h3-size: 130%; 
+@font-normal-size: 16px;
+@line-height-normal: @font-normal-size + 5px;
+@h1-size: 170%;
+@h2-size: 147%;
+@h3-size: 130%;
 
 //some var
 
-@count-circle-radius: 32px; 
+@count-circle-radius: 32px;
 
 // transparent background
 .transpare(@arg:0.892745){
@@ -40,19 +40,19 @@
 
 // circle class
 .circle{
-    .border-radius(50em); 
+    .border-radius(50em);
 }
 
 .square(@len){
-    height: @len; 
-    width: @len; 
+    height: @len;
+    width: @len;
 }
 
 .text-circle(@radius: 30px){
     .square(@radius * 2);
-    .circle; 
-    text-align: center; 
-    line-height: @radius * 2; 
+    .circle;
+    text-align: center;
+    line-height: @radius * 2;
 }
 
 html, body, div, h1, h2, h3, h4, h5, h6, p, pre,
@@ -68,19 +68,19 @@ a, abbr, acronym, address, big, cite, code,ol, ul, li, form, label, table, tr, t
 
 body{
     font-family: 'PT Sans', sans-serif;
-    font-size: @font-normal-size; 
-    line-height: @line-height-normal; 
-    color: @white; 
+    font-size: @font-normal-size;
+    line-height: @line-height-normal;
+    color: @white;
     background: no-repeat fixed top;
     /* adjust background image css */
-    background-image: url("../static/background.jpg"); 
-    -moz-background-size: 100% 100%; 
+    background-image: url("../static/background.jpg");
+    -moz-background-size: 100% 100%;
     background-size: 100% 100%;
 }
 
 a{
-    font-size: @font-normal-size; 
-    color: @blue; 
+    font-size: @font-normal-size;
+    color: @blue;
     text-decoration: none;
 }
 
@@ -105,45 +105,45 @@ ul li i{
 /* containers */
 .container{
     /* gray opcity*/
-    .transpare; 
-    .border-radius; 
+    .transpare;
+    .border-radius;
     border: 1px solid transparent;
-    padding:30px; 
+    padding:30px;
     margin: 2% auto;
 }
 
 /* hr */
 hr{
-    border:none; 
-    border-bottom: solid @gray 1px; 
+    border:none;
+    border-bottom: solid @gray 1px;
 }
 
 .h2{
-    font-weight: normal; 
-    font-size: @h2-size; 
+    font-weight: normal;
+    font-size: @h2-size;
     font-style: italic;
 }
 
 .container#user{
     margin: 3% auto;
     h1#name{
-        font-size: 120%; 
-        margin-bottom: 35px; 
+        font-size: 120%;
+        margin-bottom: 35px;
         a{
-            font-size: 120%; 
+            font-size: 120%;
         }
         span{
-            font-size: 100%; 
-            color: @light-gray; 
+            font-size: 100%;
+            color: @light-gray;
         }
     }
     #avatar_container{
         border-right:solid 1px @gray;
     }
     #avatar{
-        .circle;  
+        .circle;
         border: solid 4px @white;
-        background: @white; 
+        background: @white;
     }
     #user-info-container{
         margin-top: 10px;
@@ -152,20 +152,20 @@ hr{
         }
     }
     .countcircle{
-        margin:auto 13px; 
+        margin:auto 13px;
         h2{
-            .h2; 
-            margin: 10px auto; 
-            text-align: center; 
-            min-width: @count-circle-radius * 2; 
+            .h2;
+            margin: 10px auto;
+            text-align: center;
+            min-width: @count-circle-radius * 2;
         }
         #follower-number, #repos-count, #hireable{
             .text-circle(@count-circle-radius); //mention here: circle radius 35px!
-            font-size: @h2-size; 
-            background-color: @light-blue; 
-            color: @white; 
+            font-size: @h2-size;
+            background-color: @light-blue;
+            color: @white;
         }
-    } 
+    }
 }
 
 .container#skills{
@@ -173,14 +173,14 @@ hr{
     ul#lang-container{
         display:inline-block;
         li{
-            margin: 0 10px; 
-            float: left; 
+            margin: 0 10px;
+            float: left;
             text-align: center;
             div{
-                background-color: @light-blue; 
-                .text-circle(28px); 
-                font-size: @h3-size; 
-                color: @white; 
+                background-color: @light-blue;
+                .text-circle(28px);
+                font-size: @h3-size;
+                color: @white;
             }
             span{
                 margin: 0 5px;
@@ -193,19 +193,19 @@ hr{
 
 .container#repos{
     h2{
-        .h2; 
+        .h2;
     }
     ul#repolist{
-        float:left; 
-        min-width: 80%; 
+        float:left;
+        min-width: 80%;
         h3{
             a{
-                font-size: @h3-size; 
+                font-size: @h3-size;
                 font-weight: normal;
                 span#language{
-                    color: @light-gray; 
-                    font-style: italic; 
-                    font-size: 56%; 
+                    color: @light-gray;
+                    font-style: italic;
+                    font-size: 56%;
                 }
             }
         }
@@ -230,9 +230,9 @@ hr{
                   li{
                       float:left;
                       display: list-item;
-                      margin:0 5px; 
+                      margin:0 5px;
                 }
             }
         }
-    } 
+    }
 }
