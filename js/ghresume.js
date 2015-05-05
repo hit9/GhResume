@@ -5,6 +5,9 @@
   // Limit
   var limit = 12;
 
+  // Page limits
+  var pageLimit = 5;
+
   // API
   var api = 'https://api.github.com/users/';
 
@@ -65,11 +68,11 @@
     var repos = [];
     // Get all repos
     function loadPage(page) {
-      var uri = sprintf('{0}/repos?page={1}&callback=?',
+      var uri = sprintf('{0}/repos?sort=pushed&page={1}&callback=?',
                         api + name, page);
       $.getJSON(uri, function(res) {
         var list = res.data;
-        if (list.length === 0)
+        if (list.length === 0 || page > pageLimit)
           return renderRepos();
         Array.prototype.push.apply(repos, list);
         return loadPage(page + 1);
@@ -119,7 +122,6 @@
           langs[repo.language] += 1;
         }
       }
-      console.log(langs)
       var langStats = [];
       for (var langName in langs) {
         langStats.push([langName, langs[langName]]);
@@ -127,8 +129,6 @@
       langStats.sort(function(a, b) {
         return b[1] - a[1];
       });
-
-      console.log(repos.length);
 
       // Main Skill of User
       $('h1#name').append(sprintf('&nbsp; <span>({0})</span>', langStats[0][0]));
