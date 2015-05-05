@@ -22,8 +22,7 @@ write_user_info = (response) ->
   # document title
   $(document).attr("title", user.login+"'s "+ document.title)
   # avatar, size: 170
-  avatar_url = "https://secure.gravatar.com/avatar/" + user.gravatar_id + "?size=170"
-  $("#avatar").attr("src", avatar_url)
+  $("#avatar").attr("src", user.avatar_url)
   # name, username as default
   if user.name
     name = user.name
